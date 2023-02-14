@@ -90,7 +90,7 @@ namespace NZWalks.API.Controllers
                 return NotFound();
             }
 
-            var regionDTO = new Models.DTO.Region
+            var regionDTO = new Models.DTO.Region()
             {
                 Code = region.Code,
                 Id = region.Id,

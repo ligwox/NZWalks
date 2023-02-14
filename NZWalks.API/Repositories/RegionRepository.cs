@@ -22,8 +22,9 @@ namespace NZWalks.API.Repositories
 
         public async Task<Region> DeleteAsync(Guid id)
         {
-            var region = _nZWalksDbContext.Regions.FirstOrDefault(region=> region.Id == id);
-            if (region == null) {
+            var region = _nZWalksDbContext.Regions.FirstOrDefault(region => region.Id == id);
+            if (region == null)
+            {
                 return null;
             }
             _nZWalksDbContext.Regions.Remove(region);
@@ -44,7 +45,8 @@ namespace NZWalks.API.Repositories
         public async Task<Region> UpdateAsync(Guid id, Region region)
         {
             var reg = await _nZWalksDbContext.Regions.FirstOrDefaultAsync(region => region.Id == id);
-            if (reg == null) {
+            if (reg == null)
+            {
                 return null;
             }
             reg.Code = region.Code;
@@ -53,9 +55,9 @@ namespace NZWalks.API.Repositories
             reg.Long = region.Long;
             reg.Area = region.Area;
             reg.Population = region.Population;
-            
+
             await _nZWalksDbContext.SaveChangesAsync();
-            
+
             return reg;
         }
     }
